@@ -28,12 +28,24 @@
 <svelte:head>
   <title>Post</title>
 </svelte:head>
+
+<style>
+.sibling {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+</style>
 <h1>Post page</h1>
 
-<button on:click={postToExpress}>Post</button>
-
+<div class="sibling">
+<div>
+<button on:click={postToExpress}>Post to Store</button>
+</div>
+<div>
 <form>
   <input type="text" bind:value={name} placeholder="Name" />
   <input type="text" bind:value={lineage} placeholder="Lineage" />
-  <button on:click|preventDefault={postToExpress}>Post to Express</button>
+  <button on:click|preventDefault={postToExpress}>Post to SQLite via Express</button>
 </form>
+</div>
+</div>
