@@ -1,21 +1,20 @@
 
-import { Sequelize, DataTypes } from 'sequelize';
+import { UUIDV4, DataTypes } from 'sequelize';
 import { sequelize } from '../sqliteDB';
 
 export const UserModel = sequelize.define('User', {
     id: {
         type: DataTypes.UUID,
-        //@ts-ignore
-        defaultValue: Sequelize.UUIDV4,
+        defaultValue: UUIDV4,
         primaryKey: true
     },
     name: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false,
         unique: true
     },
     lineage: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         defaultValue: "Darmakaya"
     }
     // email: {
